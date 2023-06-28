@@ -1,19 +1,19 @@
 const transactionForm = document.getElementById("transactionForm");
 
 transactionForm.addEventListener("submit", function(event){
-        event.preventDefault();
-        if (transactionForm.price.value > 0) {
-            let transactionFormData = new FormData(transactionForm);
-            let transactionObj = convertFormDataToObj(transactionFormData);
-            console.log(transactionObj)
-            saveTransactionObj(transactionObj);
-            insertRowTable(transactionObj);
-            transactionForm.reset()
-        }
-        else{
-            alert("Monto ignresado no es correcto");
-        }
-    })
+    event.preventDefault();
+    if (transactionForm.price.value > 0) {
+        let transactionFormData = new FormData(transactionForm);
+        let transactionObj = convertFormDataToObj(transactionFormData);
+        console.log(transactionObj)
+        saveTransactionObj(transactionObj);
+        insertRowTable(transactionObj);
+        transactionForm.reset()
+    }
+    else{
+        alert("Monto ignresado no es correcto");
+    }
+})
 
 document.addEventListener("DOMContentLoaded", function(event) {
     draw_category();
@@ -111,4 +111,3 @@ function insertCategory(categoryName) {
     let htmlToInsert = `<option> ${categoryName} </option>`
     selectElement.insertAdjacentHTML("beforeend", htmlToInsert)
 }
-    
